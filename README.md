@@ -23,7 +23,8 @@ exercício e a naturalidade de pelo menos 1.400 senadores desde 1890.
 | [`exemplos/`](exemplos/) | Configurações prontas de pesquisa e arquivos de teste. |
 | [`docs/fontes.md`](docs/fontes.md) | Endereços técnicos de cada fonte e seus limites conhecidos. |
 | [`docs/metodo.md`](docs/metodo.md) | O método: ordem de consulta, critérios de prova, registro das decisões. |
-| [`skill/pesquisa-fontes-senado/`](skill/pesquisa-fontes-senado/) | *Skill* para o Claude aplicar o mesmo método. |
+| [`skill/pesquisa-fontes-senado/`](skill/pesquisa-fontes-senado/) | *Skill* para o Claude aplicar o mesmo método, com cópia dos scripts e das referências. |
+| [`empacotar.sh`](empacotar.sh) | Atualiza a pasta da skill e gera o `.zip` para distribuição. |
 
 ## Começo rápido
 
@@ -64,9 +65,23 @@ python python/cruzar.py minha_lista.csv senadores.csv --saida cruzamento.csv \
 
 ## Usar com o Claude
 
-A pasta [`skill/pesquisa-fontes-senado`](skill/pesquisa-fontes-senado/) contém uma *skill*: instruções que
-ensinam o Claude a seguir este método. Para instalá-la no claude.ai, compacte a pasta em `.zip` e envie em
-**Configurações → Capacidades → Skills**.
+A *skill* ensina o Claude a seguir este método e já traz os scripts e as referências dentro dela.
+
+1. **Baixe a skill pronta:**
+   [pesquisa-fontes-senado-skill.zip](https://github.com/guilhermeoliveirabsb/pesquisa-fontes-senado/releases/latest/download/pesquisa-fontes-senado-skill.zip)
+   (sem descompactar).
+2. **Envie o arquivo ao Claude:** nas configurações do claude.ai, na seção de *skills*, envie o `.zip` e
+   ative a skill. É preciso um plano pago com a execução de código habilitada.
+3. **Peça em linguagem natural**, por exemplo: *"Verifique nos Diários do Senado a data de posse de
+   Petrônio Portella em 1975"* ou *"Descubra a naturalidade destes senadores"*. O Claude reconhece o
+   assunto e usa a skill.
+
+Para buscas em massa nos Diários e nos PDFs, o Claude precisa de um navegador que ele controle (Claude no
+Chrome ou o navegador do aplicativo do Claude para computador). Só com a busca na web, ele atende casos
+pontuais.
+
+Para quem mantém o repositório: depois de alterar scripts ou documentos, rode `./empacotar.sh`; ele
+atualiza a pasta da skill e gera o `.zip` em `dist/`, que vai anexado a cada nova versão (*release*).
 
 ## Licença
 
