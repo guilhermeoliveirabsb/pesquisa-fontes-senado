@@ -68,7 +68,7 @@ python python/cruzar.py minha_lista.csv senadores.csv --saida cruzamento.csv \
 A *skill* ensina o Claude a seguir este método e já traz os scripts e as referências dentro dela.
 
 1. **Baixe a skill pronta:**
-   [pesquisa-fontes-senado-skill.zip](https://github.com/guilhermeoliveirabsb/pesquisa-fontes-senado/releases/latest/download/pesquisa-fontes-senado-skill.zip)
+   [pesquisa-fontes-senado-skill.zip](https://github.com/guilhermeoliveirabsb/pesquisa-fontes-senado/raw/main/dist/pesquisa-fontes-senado-skill.zip)
    (sem descompactar).
 2. **Envie o arquivo ao Claude:** nas configurações do claude.ai, na seção de *skills*, envie o `.zip` e
    ative a skill. É preciso um plano pago com a execução de código habilitada.
@@ -81,7 +81,7 @@ Chrome ou o navegador do aplicativo do Claude para computador). Só com a busca 
 pontuais.
 
 Para quem mantém o repositório: depois de alterar scripts ou documentos, rode `./empacotar.sh`; ele
-atualiza a pasta da skill e gera o `.zip` em `dist/`, que vai anexado a cada nova versão (*release*).
+atualiza a pasta da skill e gera o `.zip` em `dist/`; inclua-o no mesmo commit.
 
 ## Licença
 
